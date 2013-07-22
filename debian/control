@@ -1,9 +1,9 @@
 Source: tailnew
 Section: extra
 Priority: optional
-Maintainer: Igor Shishkin <me@teran.ru>
-Vcs-Git: git://github.com/teran/tailnew.git
-Vcs-Browser: https://github.com/teran/tailnew
+Maintainer: Igor Shishkin <teran@yandex-team.ru>
+Vcs-Git: git://github.yandex-team.ru/SaaS/tailnew.git
+Vcs-Browser: https://github.yandex-team.ru/SaaS/tailnew
 
 Package: tailnew
 Section: extra
