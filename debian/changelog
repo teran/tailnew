@@ -1,3 +1,9 @@
+tailnew (0.3) unstable; urgency=low
+
+  * Fixed bug in case of unexistent file
+
+ -- Igor Shishkin <teran@yandex-team.ru>  Thu, 08 Aug 2013 18:44:42 +0400
+
 tailnew (0.2) unstable; urgency=low
 
   * Initial release. (Closes: #XXXXXX)
