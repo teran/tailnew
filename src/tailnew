@@ -5,7 +5,13 @@ APP="$2"
 
 if [ -z "$FILE" ] || [ -z "$APP" ]
 then
-	echo "USAGE: $0 FILE APP"
+	echo "USAGE: $0 FILE APP" >&2
+	exit 1
+fi
+
+if [ "x$FILE" != "x-" ] && ! [ -f "$FILE" ]
+then
+	echo "FILE $FILE does not exist" >&2
 	exit 1
 fi
 
@@ -24,12 +30,12 @@ then
     do
         CACHE="$CACHE\n$c"
     done
-    
+
     if [ -z "$CACHE" ]
     then
         exit 0
     fi
-    
+
     END=$(echo -n "$CACHE" | wc -l | awk '{print $1}')
 else
     END=$(wc -l "$FILE" | awk '{print $1}')
