@@ -25,29 +25,17 @@ fi
 
 if [ "x$FILE" = "x-" ]
 then
-    CACHE=""
-    while read c
-    do
-        CACHE="$CACHE\n$c"
-    done
-
-    if [ -z "$CACHE" ]
-    then
-        exit 0
-    fi
-
-    END=$(echo -n "$CACHE" | wc -l | awk '{print $1}')
-else
-    END=$(wc -l "$FILE" | awk '{print $1}')
+	FILE="/tmp/tailnew/$APP/tempfile"
+	while read cache ; do
+		echo $cache >> "/tmp/tailnew/$APP/tempfile"
+	done
 fi
 
+END=$(wc -l "$FILE" | awk '{print $1}')
 LINES=$(($END - $OLD_END))
 
 echo $END > "/tmp/tailnew/$APP/end"
 
-if [ "x$FILE" = "x-" ]
-then
-    echo "$CACHE" | tail -n $LINES
-else
-    tail -n $LINES "$FILE"
-fi
+tail -n$LINES "$FILE"
+
+[ -f "/tmp/tailnew/$APP/tempfile" ] && rm -f "/tmp/tailnew/$APP/tempfile"
